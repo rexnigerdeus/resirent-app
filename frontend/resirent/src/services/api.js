@@ -4,7 +4,7 @@ import axios from 'axios';
 // Create an Axios instance with a base URL.
 // All requests made with this instance will be prefixed with this URL.
 export const apiClient = axios.create({
-  baseURL: 'http://127.0.0.1:8000/api/', // Your Django API base URL
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000/api/',
 });
 
 // Function to fetch the list of public residences
