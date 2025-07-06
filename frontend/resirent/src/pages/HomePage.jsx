@@ -15,7 +15,7 @@ const HomePage = () => {
         const response = await fetchPublicResidences();
         setResidences(response.data);
       } catch (err) {
-        setError('Failed to fetch residences. Please try again later.');
+        setError('Les résidences sont indisponibles pour le moment. Veuillez réessayer ultérieurement.');
         console.error(err);
       } finally {
         setLoading(false);
@@ -27,7 +27,7 @@ const HomePage = () => {
 
   // Conditional Rendering based on the state
   if (loading) {
-    return <div className="text-center p-8">Loading residences...</div>;
+    return <div className="text-center p-8">Chargement en cours...</div>;
   }
 
   if (error) {
@@ -44,7 +44,7 @@ const HomePage = () => {
           ))}
         </div>
       ) : (
-        <p>Aucune résidence disponible pour le moment. Réessayez plus tard.</p>
+        <p className="text-gray-700">Aucune résidence disponible pour le moment. Merci de réessayez plus tard.</p>
       )}
     </div>
   );

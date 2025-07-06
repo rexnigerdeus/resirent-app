@@ -86,41 +86,42 @@ const RegisterOwnerPage = () => {
       <div className="w-full max-w-2xl p-8 space-y-6 bg-white rounded-xl shadow-lg">
         {success ? (
           <div className="p-4 text-center bg-green-100 text-green-800 rounded-md">
-            <h3 className="font-bold">Registration Successful!</h3>
-            <p>Your account is pending admin approval. You will be notified via email once it is active.</p>
+            <h3 className="font-bold">Inscription réussie !</h3>
+            <p>Votre compte est en attente de vérification et d'approbation par l'administrateur. Vous serez contactés par e-mail et par appel pour le paiement et l'activation de votre compte.</p>
+            <p>Merci d'avoir choisi <span className="resirent-color">RESIRENT</span></p>
           </div>
         ) : (
           <>
             <h2 className="text-3xl font-extrabold text-center text-gray-900">
-              Create your Owner Account
+              Créer votre compte
             </h2>
-            <div className="text-center text-gray-500">Step {step} of 2</div>
+            <div className="text-center text-gray-500">Etape {step} sur 2</div>
 
             {/* --- STEP 1 FORM --- */}
             {step === 1 && (
               <form onSubmit={goToNextStep} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <input name="first_name" type="text" required placeholder="First Name" onChange={handleChange} className="input-style" />
-                  <input name="last_name" type="text" required placeholder="Last Name" onChange={handleChange} className="input-style" />
-                  <input name="email" type="email" required placeholder="Email Address" onChange={handleChange} className="input-style" />
-                  <input name="username" type="text" required placeholder="Username" onChange={handleChange} className="input-style" />
-                  <input name="password" type="password" required placeholder="Password" onChange={handleChange} className="input-style" />
-                  <input name="phone_number" type="tel" required placeholder="Phone Number" onChange={handleChange} className="input-style" />
+                  <input name="first_name" type="text" required placeholder="Prénom" onChange={handleChange} className="input-style" />
+                  <input name="last_name" type="text" required placeholder="Nom" onChange={handleChange} className="input-style" />
+                  <input name="email" type="email" required placeholder="Adresse Email" onChange={handleChange} className="input-style" />
+                  <input name="username" type="text" required placeholder="Nom d'utilisateur" onChange={handleChange} className="input-style" />
+                  <input name="password" type="password" required placeholder="Mot de passe" onChange={handleChange} className="input-style" />
+                  <input name="phone_number" type="tel" required placeholder="Téléphone" onChange={handleChange} className="input-style" />
                 </div>
-                <input name="address" type="text" required placeholder="Full Address" onChange={handleChange} className="input-style" />
+                <input name="address" type="text" required placeholder="Adresse (lieu d'habitation)" onChange={handleChange} className="input-style" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t">
                   <div>
-                    <label htmlFor="id_front_photo" className="block text-sm font-medium text-gray-700">ID Front Photo</label>
+                    <label htmlFor="id_front_photo" className="block text-sm font-medium text-gray-700">Pièce d'identité (avant)</label>
                     <input id="id_front_photo" name="id_front_photo" type="file" required onChange={handleFileChange} className="mt-1 input-style" />
                   </div>
                   <div>
-                    <label htmlFor="id_back_photo" className="block text-sm font-medium text-gray-700">ID Back Photo</label>
+                    <label htmlFor="id_back_photo" className="block text-sm font-medium text-gray-700">Pièce d'identité (arrière)</label>
                     <input id="id_back_photo" name="id_back_photo" type="file" required onChange={handleFileChange} className="mt-1 input-style" />
                   </div>
                 </div>
                 {error && <p className="text-sm text-red-600 text-center">{error}</p>}
                 <div className="flex justify-end">
-                  <button type="submit" className="sweet-gradient-btn">Next: Confirm Pricing</button>
+                  <button type="submit" className="sweet-gradient-btn text-gray-800">Continuer</button>
                 </div>
               </form>
             )}
@@ -129,29 +130,30 @@ const RegisterOwnerPage = () => {
             {step === 2 && (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="p-6 border rounded-lg bg-gray-50">
-                  <h3 className="text-xl font-semibold text-center text-gray-700 mb-4">Pricing Summary</h3>
+                  <h3 className="text-xl font-semibold text-center text-gray-700 mb-4">Frais d'hébergement</h3>
                   <div>
-                    <label htmlFor="residences_to_publish" className="block text-sm font-medium text-gray-700">Number of residences to publish</label>
+                    <label htmlFor="residences_to_publish" className="block text-sm font-medium text-gray-700">Nombre de résidences à publier</label>
                     <input id="residences_to_publish" name="residences_to_publish" type="number" min="1" required value={formData.residences_to_publish} onChange={handleChange} className="mt-1 input-style" />
                   </div>
                   <div className="mt-4 pt-4 border-t">
                     <div className="flex justify-between items-center text-lg">
-                      <span className="text-gray-700">Price per Residence:</span>
+                      <span className="text-gray-700">Coût par résidence:</span>
                       <span className="font-semibold text-gray-700">{PRICE_PER_RESIDENCE.toLocaleString('fr-FR')} FCFA</span>
                     </div>
                     <div className="flex justify-between items-center text-2xl text-gray-700 font-bold mt-2">
-                      <span>Total Cost:</span>
+                      <span>Coût total:</span>
                       <span>{totalCost.toLocaleString('fr-FR')} FCFA</span>
                     </div>
+                    <p className="text-gray-500 text-sm mt-2">A partir de 4 résidences vous serez contactés par l'administrateur pour des bonus de réductions sur vos coûts.</p>
                   </div>
                 </div>
                 
                 <div className="flex justify-between items-center pt-4">
                   <button type="button" onClick={goToPrevStep} className="bg-gray-200 text-gray-800 px-6 py-3 rounded-md hover:bg-gray-300">
-                    &larr; Back
+                    <span className="resirent-color">&larr;</span>
                   </button>
-                  <button type="submit" disabled={loading} className="sweet-gradient-btn px-6 py-3">
-                    {loading ? 'Submitting...' : 'Confirm & Complete Registration'}
+                  <button type="submit" disabled={loading} className="sweet-gradient-btn text-gray-800 px-6 py-3">
+                    {loading ? 'Inscription en cours...' : 'S\'inscrire'}
                   </button>
                 </div>
               </form>
@@ -159,9 +161,9 @@ const RegisterOwnerPage = () => {
           </>
         )}
         <p className="text-sm text-center text-gray-600">
-          Already have an account?{' '}
+          Vous avez déjà un compte ?{' '}
           <Link to="/login" className="font-medium text-blue-600 hover:text-blue-500">
-            Sign in
+            Se connecter
           </Link>
         </p>
       </div>

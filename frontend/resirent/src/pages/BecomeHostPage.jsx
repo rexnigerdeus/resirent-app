@@ -38,7 +38,7 @@ const BecomeHostPage = () => {
             </div>
             <div className="mt-10">
               <Link to="/register-owner" className="sweet-gradient-btn text-xl text-gray-900 py-3 px-8 rounded-md">
-                Devenir propriétaire
+                Créer un compte
               </Link>
               <p className="mt-3 text-sm text-gray-500">Il est facile de commencer, créer un compte maintenant!</p>
             </div>
@@ -76,7 +76,7 @@ const BecomeHostPage = () => {
         {/* Call to Action Section (Mobile) */}
         <div className="mt-10 text-center lg:hidden">
           <Link to="/register-owner" className="sweet-gradient-btn text-xl text-gray-900 py-3 px-8 rounded-md">
-            Devenir propriétaire
+            Créer un compte
           </Link>
           <p className="mt-3 text-sm text-gray-500">Il est facile de commencer, créer un compte maintenant!.</p>
         </div>

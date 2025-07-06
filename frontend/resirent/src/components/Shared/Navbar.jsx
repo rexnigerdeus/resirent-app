@@ -28,7 +28,7 @@ const Navbar = () => {
           {/* Desktop Links */}
           <div className="hidden md:flex md:space-x-6 md:items-center">
             <Link to="/" className="text-gray-700 text-base hover:text-indigo-600">
-              Home
+              Accueil
             </Link>
             {user ? (
               // If user is logged in
@@ -50,7 +50,7 @@ const Navbar = () => {
               <>
                 <Link to="/login" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">Se connecter</Link>
                 <Link to="/register-renter" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">S'inscrire</Link>
-                <Link to="/become-host" className="bg-blue-600 text-white hover:bg-blue-700 px-3 py-2 rounded-md text-base font-medium transition">Devenir propriétaire</Link>
+                <Link to="/become-host" className="sweet-gradient-btn text-white px-3 py-2 rounded-md text-base font-medium transition">Devenir propriétaire</Link>
               </>
             )}
           </div>
