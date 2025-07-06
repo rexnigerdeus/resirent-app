@@ -24,18 +24,24 @@ if RENDER_EXTERNAL_HOSTNAME:
 # Application definition
 
 INSTALLED_APPS = [
-    'api',
-    'rest_framework',
+    # 3rd party apps first
     'corsheaders',
+    'rest_framework',
     'cloudinary_storage',
     'cloudinary',
 
-    'django.contrib.admin',
+    # Django's built-in apps that must come before your custom user app
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Your custom app(s)
+    'api',
+
+    # Django admin must come after your custom user app
+    'django.contrib.admin',
 ]
 
 MIDDLEWARE = [
